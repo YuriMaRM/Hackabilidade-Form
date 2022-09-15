@@ -1,0 +1,22 @@
+{
+  "name": "hackabilidade",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YuriMaRM/Hackabilidade-Form.git"
+  },
+  "author": "Rh consult",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YuriMaRM/Hackabilidade-Form/issues"
+  },
+  "homepage": "https://github.com/YuriMaRM/Hackabilidade-Form#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
