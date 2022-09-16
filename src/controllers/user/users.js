@@ -18,10 +18,17 @@ export const saveResult = async (idUser, idResult) => {
 }
 
 
-export const saveUser = async (infos) => {
+export const saveUser = async (infos, path) => {
 
-    const result = await userModels.saveInfo(value(infos));
+    const result = await userModels.saveInfo(value(infos), value(path));
     sqlErrorHandler(result, 'salvar usuario');
+
+    return result;
+}
+
+export const getUserPath = async (idUser) => {
+    const result = await userModels.getUserPath(value(idUser));
+    sqlErrorHandler(result, 'pegar informações do usuario');
 
     return result;
 }

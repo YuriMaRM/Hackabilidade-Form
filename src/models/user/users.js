@@ -10,10 +10,16 @@ export const saveResult = async (idUser, idResult) => {
 };
 
 
-export const saveInfo = async (info) => {
+export const getUserPath = async (idUser) => {
+    return await conn.sqlSelectValue(`
+        SELEC caimnho FROM tb_candidato WHERE id_disc_modelo = ${idUser}
+    `);
+}
+
+export const saveInfo = async (info, path) => {
     return await conn.sqlInsert(`
-        INSERT INTO tb_candidato (nome, cpf, data_nascimento, email, telefone, referencia)
-        VALUES(${info.nome}, ${info.cpf}, ${info.dataNascimento}, ${info.email}, ${info.telefone}, ${info.referencia})
+        INSERT INTO tb_candidato (nome, cpf, data_nascimento, email, telefone, referencia, caminho)
+        VALUES(${info.nome}, ${info.cpf}, ${info.dataNascimento}, ${info.email}, ${info.telefone}, ${info.referencia}, ${path || `NULL`})
     `);
 };
 

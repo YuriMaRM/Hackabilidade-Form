@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
   })
 
 const fileFilter = (req, file, cb) => {
-    if ("application/pdf" === file.mimetype) {
+    if (["application/pdf", "image/jpeg", "image/jpg", "image/png", "image/webp"].includes(file.mimetype)) {
         cb(null, true);
         log.blue(`${file.originalname} foi armazenado no servidor!`);
     } else {
@@ -25,4 +25,4 @@ const fileFilter = (req, file, cb) => {
         req.hasUnsuportedFiles = true;
     };
 };
-export const uploadStorage = multer({ storage: storage, fileFilter: fileFilter })
+export const uploadStorage = multer({ storage: storage, fileFilter: fileFilter });

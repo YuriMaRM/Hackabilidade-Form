@@ -14,11 +14,19 @@ export const getQuestion = async () => {
     const questions = await discModels.getAllQuestions();
     sqlErrorHandler(questions, 'retornar todas as perguntas');
 
-    const questionFormated = await questions.map(question => ({
+/*     const questionFormated = await questions.map(question => ({
         id: question.id,
         termo: question.termo,
         pergunta: question.pergunta
-    }))
+    }))  */
+    let questionFormated = [];
+    for (let i = 0; i < 14; i++) {
+        let questList = []
+        for (let j = 0; j < 4; j++) {
+            questList.push(questions[i * 4 + j]);
+        }   
+        questionFormated.push(questList);     
+    }
     return questionFormated;
 }
 
